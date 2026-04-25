@@ -10,4 +10,3 @@ A Python-based automation tool that extracts error data from server logs and sto
 1. Clone this repository.
 2. Ensure you have a `server_log.txt` file in the directory.
 3. Run `proccessor.py` to populate the database.
-4. Run `reader.py` to view the stored results.
