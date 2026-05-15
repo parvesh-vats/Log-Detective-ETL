@@ -2,7 +2,6 @@
 import sqlite3
 from datetime import datetime
 
-# --- DATABASE SETUP ---
 conn = sqlite3.connect("logs.db")
 cursor = conn.cursor()
 cursor.execute('''
@@ -15,7 +14,7 @@ cursor.execute('''
 ''')
 conn.commit() # Save the table creation
 
-# --- THE ETL LOOP ---
+
 with open("server_log.txt", "r") as file:
     for linenum, line in enumerate(file, start=1):
         if "ERROR" in line.upper():
@@ -30,7 +29,7 @@ with open("server_log.txt", "r") as file:
                 (timestamp, level, message)
             )
 
-# --- CLEANUP ---
+
 conn.commit() # Save all the inserted errors
 conn.close()
 print("Success: Errors have been loaded into logs.db")
